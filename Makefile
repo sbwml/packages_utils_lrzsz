@@ -39,6 +39,10 @@ define Package/lrzsz/description
   from a variety of programs running under various operating systems.
 endef
 
+ifeq ($(call qstrip,$(CONFIG_USE_GLIBC)),y)
+	CONFIGURE_ARGS += --enable-syslog=no
+endif
+
 define Package/lrzsz/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/lrz $(1)/usr/bin/
