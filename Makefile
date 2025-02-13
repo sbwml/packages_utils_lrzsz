@@ -39,6 +39,8 @@ define Package/lrzsz/description
   from a variety of programs running under various operating systems.
 endef
 
+TARGET_CFLAGS += -std=gnu17
+
 ifeq ($(call qstrip,$(CONFIG_USE_GLIBC)),y)
 	CONFIGURE_ARGS += --enable-syslog=no
 endif
